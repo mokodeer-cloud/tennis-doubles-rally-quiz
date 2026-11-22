@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101a16">
+<title>ダブルス ラリー判断</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="game.js"></script>
+</head>
+<body>
+<main>
+  <header><div class="wordmark"><span class="mark" aria-hidden="true">●</span> RALLY READ</div><span class="tag">テニス・ダブルス</span></header>
+  <section class="intro"><h1>ダブルス ラリー判断</h1><p>ラリーを見て、次の一球の狙いを選ぼう。</p></section>
+  <div class="progress"><strong id="count"></strong><div id="steps" aria-hidden="true"></div><span id="score"></span></div>
+  <section class="game" id="game" aria-label="ラリーとコート">
+    <div class="game-head"><span id="phase" role="status"></span><span id="shot"></span></div>
+    <div class="arena">
+      <canvas id="court" width="760" height="800" aria-label="上が相手、下が自分たちのテニスコート"></canvas>
+      <div id="targets" aria-label="相手コートの狙い"></div>
+    </div>
+    <div class="playback-options">
+      <label for="speed">再生速度</label>
+      <select id="speed">
+        <option value="0.5">0.5倍</option>
+        <option value="0.75">0.75倍</option>
+        <option value="1" selected>1倍</option>
+        <option value="1.25">1.25倍</option>
+        <option value="1.5">1.5倍</option>
+      </select>
+    </div>
+    <div class="legend"><span><i class="ally"></i>味方</span><span><i class="opponent"></i>相手</span></div>
+    <div class="legend stroke-legend" id="stroke-legend" aria-label="球種の色"></div>
+  </section>
+  <section class="prompt">
+    <div><h2 id="heading"></h2><p id="hint"></p></div>
+    <button id="replay" type="button">ラリーを見る</button>
+  </section>
+  <section id="feedback" class="feedback" hidden aria-live="polite">
+    <div id="verdict"></div><h2 id="recommendation"></h2><p id="reason"></p><p id="rally-tactic"></p>
+    <button id="review" type="button">ラリーをもう一度見る</button>
+    <button id="next" type="button">次の問題</button>
+  </section>
+</main>
+</body>
+</html>
